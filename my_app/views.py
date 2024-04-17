@@ -33,6 +33,7 @@ class TopicDetailAPIView(RetrieveAPIView):
 class TopicCreateAPIView(CreateAPIView):
     queryset = Topic.objects.all()
     serializer_class = TopicDetailSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class TopicUpdateAPIView(UpdateAPIView):
@@ -58,18 +59,6 @@ class TopicDeleteAPIView(DestroyAPIView):
         return Response()
 
 
-# class TopicViewSet(viewsets.ModelViewSet):
-#     queryset = Topic.objects.all()
-#     serializer_class = TopicSerializer
-#     filter_backends = [DjangoFilterBackend]
-#     filterset_class = TopicFilter
-#     filterset_fields = {
-#         'topic': ['exact', 'icontains'],
-#         'topic__title': ['exact', 'gte', 'lte', 'icontains'],
-#         'topic__description': ['exact','gte', 'lte', 'icontains'],
-#         'topic__name': ['exact', 'icontains', 'gt', 'lte']
-#
-#     }
 
 class TopicViewSet(viewsets.ModelViewSet):
     queryset = Topic.objects.all()
