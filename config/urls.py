@@ -35,6 +35,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/python/', include('my_app.urls')),
     path('api/v1/feature/', include('app_python.urls')),
+    path('api/v1/accounts/', include('users.urls')),
     # Jwt
     path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

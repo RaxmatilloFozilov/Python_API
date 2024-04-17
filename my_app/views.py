@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 
 from .models import Python, Topic
 from .serializers import TopicSerializer, TopicDetailSerializer
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, permissions
 from rest_framework.generics import DestroyAPIView
 
 from django_filters.rest_framework import DjangoFilterBackend
@@ -34,6 +34,7 @@ class TopicCreateAPIView(CreateAPIView):
     queryset = Topic.objects.all()
     serializer_class = TopicDetailSerializer
     permission_classes = [IsAuthenticated]
+
 
 
 class TopicUpdateAPIView(UpdateAPIView):
